@@ -5,23 +5,32 @@
  */
 package model;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
  *
  * @author cuongdx
  */
-public class tblThuaDat {
+@Entity
+@Table(name="thuadat12457",
+       uniqueConstraints  = { @UniqueConstraint(columnNames = { "THUAID" }) }
+)
+public class tblThuaDat implements Serializable {
 
     /**
      *
      */
     public int gid;
-
+   
     public void setGid(int gid) {
         this.gid = gid;
     }
@@ -97,79 +106,103 @@ public class tblThuaDat {
     public void setDTTHOCU(String DTTHOCU) {
         this.DTTHOCU = DTTHOCU;
     }
-
-    public int getGid() {
+    
+    /**
+     *
+     * @return
+     */
+    @Id
+    @Column(name="gid")
+    public int getgid() {
         return gid;
     }
-
+    
+    @Column(name="ID")
     public int getID() {
         return ID;
     }
-
+    
+    @Column(name="THUAID")
     public int getTHUAID() {
         return THUAID;
     }
 
+    @Column(name="XAID")
     public int getXAID() {
         return XAID;
     }
 
+    @Column(name="SHBANDO")
     public int getSHBANDO() {
         return SHBANDO;
     }
 
+    @Column(name="SHTHUA")
     public int getSHTHUA() {
         return SHTHUA;
     }
 
+    @Column(name="DIENTICH")
     public float getDIENTICH() {
         return DIENTICH;
     }
 
+    @Column(name="DIENTICHPL")
     public float getDIENTICHPL() {
         return DIENTICHPL;
     }
 
+    @Column(name="MALOAIDAT",length = 10)
     public String getMALOAIDAT() {
         return MALOAIDAT;
     }
 
+    @Column(name="KHLOAIDAT",length = 10)
     public String getKHLOAIDAT() {
         return KHLOAIDAT;
     }
 
+    @Column(name="DIADANH",length = 30)
     public String getDIADANH() {
         return DIADANH;
     }
 
+    @Column(name="DTSD")
     public int getDTSD() {
         return DTSD;
     }
 
+    @Column(name="TENCHU",length = 50)
     public String getTENCHU() {
         return TENCHU;
     }
 
+    @Column(name="DIACHI",length = 50)
     public String getDIACHI() {
         return DIACHI;
     }
 
+    @Column(name="MDSD2003")
     public int getMDSD2003() {
         return MDSD2003;
     }
 
+    @Column(name="KH2003",length = 10)
     public String getKH2003() {
         return KH2003;
     }
 
+    @Column(name="MSCOLOR")
     public int getMSCOLOR() {
         return MSCOLOR;
     }
 
+    @Column(name="SHTHUATAM",length = 10)
     public String getSHTHUATAM() {
         return SHTHUATAM;
     }
 
+    @Column(name="DTTHOCU",length = 10)
     public String getDTTHOCU() {
         return DTTHOCU;
     }

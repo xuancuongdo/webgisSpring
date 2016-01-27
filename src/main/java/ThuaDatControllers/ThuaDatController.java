@@ -5,10 +5,15 @@
  */
 package ThuaDatControllers;
 
+import java.util.List;
+import model.ThuaDatControl;
+import model.postgresCont;
+import model.tblThuaDat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -26,5 +31,14 @@ public class ThuaDatController {
     public String index()
     {
         return "index";
+    }
+    @RequestMapping(value="/xemdanhsachthua",method=RequestMethod.GET)
+    public ModelAndView XemDanhSach(Model model)
+    {
+        postgresCont c= new postgresCont();
+        ThuaDatControl d= new ThuaDatControl();
+        List<tblThuaDat> lstThua= d.getAllLands();
+        
+        return new ModelAndView("viewThuaDat","lstThua",lstThua);
     }
 }
